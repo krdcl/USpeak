@@ -6,8 +6,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Widget w;
     w.show();
-    bool skok = true;
-    bool init = false;
+    w.setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
     /*while (!init)
     {
         w.logOutput(QString("Search someone...   "));

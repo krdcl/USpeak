@@ -29,6 +29,8 @@ Widget::Widget(QWidget *parent) :
 
     ui->message_output->setReadOnly(true);
     ui->text_log->setReadOnly(true);
+
+   // connecor->setPort(qrand());
 }
 
 Widget::~Widget()
@@ -85,17 +87,17 @@ void Widget::on_connect_button_clicked()
 {
      logOutput(QString("Search clients...   "));
 
-   connecor->bind(QHostAddress::Any, 5502);
+   connecor->bind(QHostAddress::LocalHost, connecor->getPort());
 }
 
 void Widget::on_pushButton_connect_clicked()
 {
     logOutput(QString("Search clients...   "));
-   connecor->bind(QHostAddress::Any, 5502);
+   connecor->bind(QHostAddress::LocalHost, connecor->getPort());
 }
 
 void Widget::on_pushButton_listen_clicked()
 {
-    logOutput(QString("Search server...   "));
+   // logOutput(QString("Search server...   "));
     //connecor->connectOrListen(false);
 }

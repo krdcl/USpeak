@@ -17,9 +17,12 @@ public:
      ~Server();
 
     void sendMessage(QByteArray datagram);
+    quint16 getPort() const;
+    void setPort(const quint16 &value);
+
 signals:
-   void massageReceived(QByteArray msg);
-   void massageSended(QByteArray msg);
+    void massageReceived(QByteArray msg);
+    void massageSended(QByteArray msg);
 public slots:
     void readPendingDatagrams();
 
