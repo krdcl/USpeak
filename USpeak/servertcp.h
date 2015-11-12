@@ -9,7 +9,7 @@ class ServerTCP : public QTcpServer
 
     QHostAddress host_adress;
     quint16 port ;
-   QSet <QTcpSocket *> clients;
+   QList <QTcpSocket *> clients;
    int time_out_wait;
 public:
     explicit  ServerTCP(QObject *parent = 0);

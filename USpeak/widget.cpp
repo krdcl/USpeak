@@ -120,12 +120,14 @@ void Widget::on_send_button_clicked()
 
     // connecor->bind(QHostAddress::LocalHost, connecor->getPort());
     connector->sendMessage(message.toLocal8Bit());
-    if (client_or_server)
+   if (!client_or_server)
     {
+        logOutput(" server_tcp->sendMessageToAllClients(message.toLocal8Bit());");
         server_tcp->sendMessageToAllClients(message.toLocal8Bit());
     }
-    else
+   else
     {
+        logOutput("client_tcp->writeMessage(message.toLocal8Bit());");
         client_tcp->writeMessage(message.toLocal8Bit());
     }
 }
@@ -166,12 +168,13 @@ void Widget::on_pushButton_connect_clicked()
             break;
         }
     }*/
-
-    logOutput( QString ( "Search clients...   "));
-    if ( server_tcp->listenHostPort() )
+    logOutput( QString( "Search server...   " ) );
+    if ( client_tcp->connectToHostPort() )
     {
-        client_or_server = false;
+
     }
+    client_or_server = true;
+
 
    // client_or_server = true;
     // connector->joinMulticastGroup(connector->getHostAdress());
@@ -185,9 +188,11 @@ void Widget::on_pushButton_listen_clicked()
 
 void Widget::on_listen_button_clicked()
 {
-    logOutput( QString( "Search server...   " ) );
-    if ( client_tcp->connectToHostPort() )
+
+    logOutput( QString ( "Search clients...   "));
+    if ( server_tcp->listenHostPort() )
     {
-        client_or_server = true;
+
     }
+    client_or_server = false;
 }

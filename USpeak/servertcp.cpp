@@ -23,13 +23,14 @@ void ServerTCP::newClient()
     // need to grab the socket
     QTcpSocket *socket = nextPendingConnection();
 
-    clients.insert(socket);
+    clients.append(socket);
 
     connect(socket, SIGNAL(disconnected()), this, SLOT(clientDisconected()));
     connect(socket, SIGNAL(readyRead()), this, SLOT(readMessage()));
 
+
     socket->write("Hello client\r\n");
-    socket->flush();
+    //socket->flush();
 
     socket->waitForBytesWritten(time_out_wait);
 }
@@ -38,13 +39,20 @@ bool ServerTCP::sendMessageToAllClients(QByteArray message)
 {
     bool rezult = true;
     emit sendedMessage(message);
-    foreach(QTcpSocket * cliento,clients)
+    int i=0;
+  //  foreach(QTcpSocket * cliento,clients)
+        for (int i=0; i< clients.size(); i++)
     {
+QTcpSocket * cliento = clients[i];
         cliento->write(message);
-        if (!cliento->flush())
+        //cliento->flush();
+
+
+qDebug() << "sendMessageToAllClients " << i++ << "successfull: " <<  cliento->waitForBytesWritten(time_out_wait);
+      /*  if (!cliento->flush())
             rezult = false;
         if (!cliento->waitForBytesWritten(time_out_wait))
-            rezult = false;
+            rezult = false;*/
     }
     return rezult;
 }
@@ -54,7 +62,7 @@ void ServerTCP::clientDisconected()
 {
     QTcpSocket *client = (QTcpSocket*)sender();
     //qDebug() << "Client disconnected:" << client->peerAddress().toString();
-    clients.remove(client);
+    //clients.remove(client);
     foreach(QTcpSocket *client, clients)
         client->write(QString("Server:  has left.\n").toUtf8());
 }
@@ -62,6 +70,7 @@ void ServerTCP::clientDisconected()
 void ServerTCP::readMessage()
 {
     QTcpSocket *client = (QTcpSocket*)sender();
+    //if (client->)
     QByteArray message = client->readAll();
     emit receivedMessage(message);
 }
