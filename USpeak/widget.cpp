@@ -40,10 +40,18 @@ Widget::Widget(QWidget *parent) :
     QHostAddress host =  QHostAddress::Broadcast;
     connector->setPort(qrand());
     connector->setHostAdress(host);
-    connector->bindHostPort();
+   // connector->bindHostPort();
 
    // connector->joinMulticastGroup(host);
 
+    client_tcp = new ClientTcp(this);
+    server_tcp = new ServerTCP(this);
+    connect(client_tcp,SIGNAL(sendedMessage(QByteArray)),this,SLOT(messageOutput(QByteArray)));
+    connect(client_tcp,SIGNAL(receivedMessage(QByteArray)),this,SLOT(messageOutput(QByteArray)));
+
+    //connect(server_tcp,SIGNAL(),this,SLOT());
+    connect(client_tcp,SIGNAL(sendedMessage(QByteArray)),this,SLOT(messageOutput(QByteArray)));
+    connect(client_tcp,SIGNAL(receivedMessage(QByteArray)),this,SLOT(messageOutput(QByteArray)));
 
 
     //    connecor->ho
@@ -53,6 +61,8 @@ Widget::~Widget()
 {
     delete ui;
     delete connector;
+    delete client_tcp;
+    delete server_tcp;
 }
 
 
@@ -112,7 +122,23 @@ void Widget::on_connect_button_clicked()
 
 void Widget::on_pushButton_connect_clicked()
 {
-    logOutput(QString("Search clients...   "));
+
+    while (true)
+    {
+        logOutput(QString("Search clients...   "));
+        if ( client_tcp->connectToHostPort() )
+        {
+            client_or_server = false;
+            break;
+        }
+        /*if ( server_tcp )
+        {
+            client_or_server = false;
+            break;
+        }*/
+    }
+
+    client_or_server = true;
     // connector->joinMulticastGroup(connector->getHostAdress());
 }
 

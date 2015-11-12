@@ -5,6 +5,9 @@
 #include "includes.h"
 #include <server.h>
 #include "account.h"
+#include "clienttcp.h"
+#include "servertcp.h"
+
 namespace Ui {
 class Widget;
 }
@@ -14,8 +17,11 @@ class Widget : public QWidget
     Q_OBJECT
 
 
+    bool client_or_server;
     Account myself;
     Server *connector;
+    ClientTcp* client_tcp;
+    ServerTCP* server_tcp;
     bool con_skok = false;
 
 public:
