@@ -17,6 +17,14 @@ public:
 
    bool sendMessageToAllClients(QByteArray message);
    bool listenHostPort();
+
+   void setPort(const quint16 &value);
+   QHostAddress getHostAdress() const;
+   void setHostAdress(const QHostAddress &value);
+
+   quint16 getPort() const;
+
+
 public slots:
     void newClient();
     void readMessage();

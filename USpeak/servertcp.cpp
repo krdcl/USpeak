@@ -68,14 +68,34 @@ void ServerTCP::readMessage()
 
 bool ServerTCP::listenHostPort()
 {
-    if (!listen(host_adress, port))
+    if (!listen(host_adress,port))
         return false;
-
+return true;
     if (!this->waitForNewConnection(time_out_wait))
     {
         this->close();
         return false;
     }
     return true;
+}
+
+quint16 ServerTCP::getPort() const
+{
+    return port;
+}
+
+void ServerTCP::setPort(const quint16 &value)
+{
+    port = value;
+}
+
+QHostAddress ServerTCP::getHostAdress() const
+{
+    return host_adress;
+}
+
+void ServerTCP::setHostAdress(const QHostAddress &value)
+{
+    host_adress = value;
 }
 

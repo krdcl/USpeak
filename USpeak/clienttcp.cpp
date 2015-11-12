@@ -58,7 +58,7 @@ ClientTcp::~ClientTcp()
 bool ClientTcp::connectToHostPort()
 {
     connectToHost(host_adress, port);
-
+return true;
     if(waitForConnected(time_out_wait))
     {
         return true;

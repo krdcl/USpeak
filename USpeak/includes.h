@@ -12,6 +12,9 @@
 #include <QTime>
 #include <QSet>
 #include <QUdpSocket>
+#include <QNetworkConfigurationManager>
+#include <QSettings>
+#include <QNetworkSession>
 
 #endif // INCLUDES
 

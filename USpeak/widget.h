@@ -39,8 +39,10 @@ public slots:
     void messageOutput(QString msg);
     void messageOutput(QByteArray msg);
     void logOutput(QString log);
+    void serverFounded();
+    void clientConnected();
 
-public slots:
+
     void on_send_button_clicked();
 
     void on_connect_button_clicked();
@@ -49,6 +51,8 @@ private slots:
     void on_pushButton_connect_clicked();
 
     void on_pushButton_listen_clicked();
+
+    void on_listen_button_clicked();
 
 private:
     Ui::Widget *ui;

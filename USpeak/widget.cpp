@@ -48,12 +48,21 @@ Widget::Widget(QWidget *parent) :
     server_tcp = new ServerTCP(this);
     connect(client_tcp,SIGNAL(sendedMessage(QByteArray)),this,SLOT(messageOutput(QByteArray)));
     connect(client_tcp,SIGNAL(receivedMessage(QByteArray)),this,SLOT(messageOutput(QByteArray)));
+ connect(client_tcp,SIGNAL(connected()),this,SLOT(serverFounded()));
 
     //connect(server_tcp,SIGNAL(),this,SLOT());
-    connect(client_tcp,SIGNAL(sendedMessage(QByteArray)),this,SLOT(messageOutput(QByteArray)));
-    connect(client_tcp,SIGNAL(receivedMessage(QByteArray)),this,SLOT(messageOutput(QByteArray)));
+    connect(server_tcp,SIGNAL(sendedMessage(QByteArray)),this,SLOT(messageOutput(QByteArray)));
+    connect(server_tcp,SIGNAL(receivedMessage(QByteArray)),this,SLOT(messageOutput(QByteArray)));
+    connect(server_tcp,SIGNAL(newConnection()),this,SLOT(clientConnected()));
 
+    QHostAddress hosta("127.15.10.12");
 
+    quint16 port = 135665;
+    client_tcp->setHostAdress(hosta);
+    client_tcp->setPort(port);
+
+    server_tcp->setHostAdress(hosta);
+    server_tcp->setPort(port);
     //    connecor->ho
 }
 
@@ -111,7 +120,26 @@ void Widget::on_send_button_clicked()
 
     // connecor->bind(QHostAddress::LocalHost, connecor->getPort());
     connector->sendMessage(message.toLocal8Bit());
+    if (client_or_server)
+    {
+        server_tcp->sendMessageToAllClients(message.toLocal8Bit());
+    }
+    else
+    {
+        client_tcp->writeMessage(message.toLocal8Bit());
+    }
 }
+
+void Widget::serverFounded()
+{
+    logOutput("Server founded");
+}
+
+void Widget::clientConnected()
+{
+    logOutput("client Connected");
+}
+
 
 void Widget::on_connect_button_clicked()
 {
@@ -123,22 +151,29 @@ void Widget::on_connect_button_clicked()
 void Widget::on_pushButton_connect_clicked()
 {
 
-    while (true)
+    /*for ( int i=0 ; i < 50; i++ )
     {
-        logOutput(QString("Search clients...   "));
+        logOutput( QString( "Search server...   " ) );
         if ( client_tcp->connectToHostPort() )
         {
             client_or_server = false;
             break;
         }
-        /*if ( server_tcp )
+        logOutput( QString ( "Search clients...   "));
+        if ( server_tcp->listenHostPort() )
         {
-            client_or_server = false;
+            client_or_server = true;
             break;
-        }*/
+        }
+    }*/
+
+    logOutput( QString ( "Search clients...   "));
+    if ( server_tcp->listenHostPort() )
+    {
+        client_or_server = false;
     }
 
-    client_or_server = true;
+   // client_or_server = true;
     // connector->joinMulticastGroup(connector->getHostAdress());
 }
 
@@ -146,4 +181,13 @@ void Widget::on_pushButton_listen_clicked()
 {
     // logOutput(QString("Search server...   "));
     //connecor->connectOrListen(false);
+}
+
+void Widget::on_listen_button_clicked()
+{
+    logOutput( QString( "Search server...   " ) );
+    if ( client_tcp->connectToHostPort() )
+    {
+        client_or_server = true;
+    }
 }
