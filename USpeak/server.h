@@ -16,6 +16,10 @@ public:
     Server(QObject *parent = Q_NULLPTR);
      ~Server();
 
+    void setHostAdress(QHostAddress adress);
+    void setHostAdress(QString adress);
+    QHostAddress getHostAdress();
+    void bindHostPort();
     void sendMessage(QByteArray datagram);
     quint16 getPort() const;
     void setPort(const quint16 &value);

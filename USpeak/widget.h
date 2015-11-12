@@ -15,7 +15,7 @@ class Widget : public QWidget
 
 
     Account myself;
-    Server *connecor;
+    Server *connector;
     bool con_skok = false;
 
 public:
