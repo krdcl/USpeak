@@ -23,6 +23,7 @@ Server::~Server()
 
 }
 
+
 void Server::readPendingDatagrams()
 {
     while (hasPendingDatagrams()) {
@@ -56,6 +57,7 @@ void Server::sendMessage(QByteArray datagram)
 
     writeDatagram(datagram.data(), datagram.size(),
                              QHostAddress("255.255.255.255"), 45454);
+    qDebug() << "writeDatagram";
     emit  massageSended(datagram);
 }
 

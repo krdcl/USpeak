@@ -16,5 +16,12 @@
 #include <QSettings>
 #include <QNetworkSession>
 
+#include <QtMultimedia/QAudioRecorder>
+#include <QtMultimedia/QAudioEncoderSettings>
+#include <QtMultimedia/QAudioProbe>
+#include <QtMultimedia/QAudioOutput>
+#include <QtMultimedia/QMediaPlayer>
+#include <QBuffer>
+
 #endif // INCLUDES
 

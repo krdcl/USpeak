@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui websockets network
+QT       += core gui websockets network multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,13 +17,17 @@ SOURCES += main.cpp\
     account.cpp \
     server.cpp \
     servertcp.cpp \
-    clienttcp.cpp
+    clienttcp.cpp \
+    audiorecorder.cpp \
+    audiodecoder.cpp
 
 HEADERS  += widget.h \
     includes.h \
     account.h \
     server.h \
     servertcp.h \
-    clienttcp.h
+    clienttcp.h \
+    audiorecorder.h \
+    audiodecoder.h
 
 FORMS    += widget.ui

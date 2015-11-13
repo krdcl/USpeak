@@ -7,6 +7,8 @@
 #include "account.h"
 #include "clienttcp.h"
 #include "servertcp.h"
+#include "audiorecorder.h"
+#include "audiodecoder.h"
 
 namespace Ui {
 class Widget;
@@ -16,6 +18,8 @@ class Widget : public QWidget
 {
     Q_OBJECT
 
+    AudioDecoder* decoder;
+    AudioRecorder* recorder;
 
     bool client_or_server;
     Account myself;
@@ -38,6 +42,9 @@ public:
 public slots:
     void messageOutput(QString msg);
     void messageOutput(QByteArray msg);
+
+    void audioOutput(QByteArray audio);
+
     void logOutput(QString log);
     void serverFounded();
     void clientConnected();
@@ -53,6 +60,8 @@ private slots:
     void on_pushButton_listen_clicked();
 
     void on_listen_button_clicked();
+
+    void on_speak_button_clicked();
 
 private:
     Ui::Widget *ui;

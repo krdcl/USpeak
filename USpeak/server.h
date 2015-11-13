@@ -20,7 +20,9 @@ public:
     void setHostAdress(QString adress);
     QHostAddress getHostAdress();
     void bindHostPort();
-    void sendMessage(QByteArray datagram);
+
+
+
     quint16 getPort() const;
     void setPort(const quint16 &value);
 
@@ -29,6 +31,7 @@ signals:
     void massageSended(QByteArray msg);
 public slots:
     void readPendingDatagrams();
+     void sendMessage(QByteArray datagram);
 
 };
 
