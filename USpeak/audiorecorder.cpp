@@ -19,6 +19,10 @@ AudioRecorder::AudioRecorder(QObject *parent) : QObject(parent)
         connect(audioProbe, SIGNAL(audioBufferProbed(QAudioBuffer)),
                 this, SLOT(calculateLevel(QAudioBuffer)));
     }
+
+    timer_out =  new QTimer (this);\
+    timer_out->setInterval(15);
+    //connect(timer_out,SIGNAL(timeout()),this,SIGNAL(audioBufferder()));
 }
 
 AudioRecorder::~AudioRecorder()
@@ -35,6 +39,8 @@ void AudioRecorder::calculateLevel(QAudioBuffer buffer)
 void AudioRecorder::beginRecord()
 {
     audio_recorder->record();
+
+    timer_out->start();
 }
 
 void AudioRecorder::endRecord()

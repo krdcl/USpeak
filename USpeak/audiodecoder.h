@@ -10,6 +10,7 @@ class AudioDecoder : public QObject
      QAudioOutput* audio_output;
      QMediaPlayer *player;
      QBuffer audio_buffer;
+     QIODevice *input_io;
 public:
      AudioDecoder(QObject *parent = 0);
     ~AudioDecoder();

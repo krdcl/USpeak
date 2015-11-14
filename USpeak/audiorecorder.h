@@ -9,6 +9,7 @@ class AudioRecorder: public QObject
 
     QAudioRecorder * audio_recorder;
     QAudioProbe* audioProbe;
+    QTimer *timer_out;
 
 public:
 
@@ -18,6 +19,7 @@ public:
     void endRecord();
 signals:
     void audioBufferder(QByteArray buffer);
+    void audioBufferder();
 
 public slots:
     void calculateLevel(QAudioBuffer buffer);

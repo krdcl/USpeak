@@ -19,7 +19,9 @@ AudioDecoder::AudioDecoder(QObject *parent) : QObject(parent)
 
     audio_output = new QAudioOutput(format, this);
 
-    player = new QMediaPlayer(this);
+    player = new QMediaPlayer(this);\
+
+    //input_io = audio_output->start();
     //connect(player,SIGNAL())
 }
 
@@ -41,6 +43,10 @@ void AudioDecoder::stop()
 void AudioDecoder::setNextContent(QByteArray content)
 {
     audio_buffer.setBuffer(&content);
+
+    player->setMedia(QMediaContent(),&audio_buffer);
+
+
 }
 
 void AudioDecoder::playNextContent()

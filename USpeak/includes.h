@@ -22,6 +22,10 @@
 #include <QtMultimedia/QAudioOutput>
 #include <QtMultimedia/QMediaPlayer>
 #include <QBuffer>
+#include <QTimer>
+#include <QIODevice>
+#include <QFile>
+#include <QUrl>
 
 #endif // INCLUDES
 
