@@ -3,6 +3,7 @@
 
 QString Account::getName() const
 {
+    
     return name;
 }
 
