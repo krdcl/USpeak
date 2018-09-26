@@ -24,6 +24,8 @@ void Connector::setMyself(const Account &value)
 }
 Connector::Connector( QObject *parent)
 {
+    
+    
     this->setParent(parent);
     host_adress = QHostAddress("127.0.0.1");
 
