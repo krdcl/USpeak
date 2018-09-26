@@ -19,7 +19,7 @@
 		5BC4A092215B63CF0023BE6D /* connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4A081215B63CF0023BE6D /* connector.cpp */; };
 		5BC4A093215B63CF0023BE6D /* account.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4A087215B63CF0023BE6D /* account.cpp */; };
 		5BC4A094215B63CF0023BE6D /* audiorecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4A089215B63CF0023BE6D /* audiorecorder.cpp */; };
-		5BC4A096215B6AB20023BE6D /* book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4A095215B6AB20023BE6D /* book.cpp */; };
+		5BC4A096215B6AB20023BE6D /* book2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4A095215B6AB20023BE6D /* book2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,7 +62,7 @@
 		5BC4A087215B63CF0023BE6D /* account.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = account.cpp; path = ../../account.cpp; sourceTree = "<group>"; };
 		5BC4A088215B63CF0023BE6D /* clienttcp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = clienttcp.h; path = ../../clienttcp.h; sourceTree = "<group>"; };
 		5BC4A089215B63CF0023BE6D /* audiorecorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiorecorder.cpp; path = ../../audiorecorder.cpp; sourceTree = "<group>"; };
-		5BC4A095215B6AB20023BE6D /* book.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = book.cpp; sourceTree = "<group>"; };
+		5BC4A095215B6AB20023BE6D /* book2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = book2.cpp; sourceTree = "<group>"; };
 		5BC4A097215B6EBA0023BE6D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,7 +122,7 @@
 				5BC4A07A215B63CE0023BE6D /* widget.h */,
 				5BC4A074215B63CE0023BE6D /* widget.ui */,
 				5BC4A06A215B63B80023BE6D /* main.cpp */,
-				5BC4A095215B6AB20023BE6D /* book.cpp */,
+				5BC4A095215B6AB20023BE6D /* book2.cpp */,
 				5BC4A097215B6EBA0023BE6D /* Media.xcassets */,
 			);
 			path = project;
@@ -189,7 +189,7 @@
 				5BC4A06B215B63B80023BE6D /* main.cpp in Sources */,
 				5BC4A08E215B63CF0023BE6D /* client.cpp in Sources */,
 				5BC4A08A215B63CF0023BE6D /* widget.cpp in Sources */,
-				5BC4A096215B6AB20023BE6D /* book.cpp in Sources */,
+				5BC4A096215B6AB20023BE6D /* book2.cpp in Sources */,
 				5BC4A090215B63CF0023BE6D /* servertcp.cpp in Sources */,
 				5BC4A094215B63CF0023BE6D /* audiorecorder.cpp in Sources */,
 				5BC4A08F215B63CF0023BE6D /* main.cpp in Sources */,
