@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = USpeak
 TEMPLATE = app
-
+#blabla
 
 SOURCES += main.cpp\
         widget.cpp \
