@@ -2,6 +2,7 @@
 
 //dev_one 10 27
 //dev one 10 30
+//dev one 10 35
 
 ServerTCP::ServerTCP(QObject *parent) : QTcpServer(parent)
 {
