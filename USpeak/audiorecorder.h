@@ -3,6 +3,7 @@
 
 #include "includes.h"
 
+
 class AudioRecorder: public QObject
 {
     Q_OBJECT
