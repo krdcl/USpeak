@@ -1,5 +1,5 @@
 #include "account.h"
-
+//dev 10 18
 
 QString Account::getName() const
 {
