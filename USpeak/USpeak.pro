@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     servertcp.cpp \
     clienttcp.cpp \
     audiorecorder.cpp \
-    audiodecoder.cpp
+    audiodecoder.cpp \
+    thefile1.cpp
 
 HEADERS  += widget.h \
     includes.h \
