@@ -1,6 +1,7 @@
 #include "servertcp.h"
 
 //dev_one 10 27
+//dev one 10 30
 
 ServerTCP::ServerTCP(QObject *parent) : QTcpServer(parent)
 {
