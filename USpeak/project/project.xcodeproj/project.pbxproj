@@ -63,6 +63,7 @@
 		5BC4A088215B63CF0023BE6D /* clienttcp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = clienttcp.h; path = ../../clienttcp.h; sourceTree = "<group>"; };
 		5BC4A089215B63CF0023BE6D /* audiorecorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiorecorder.cpp; path = ../../audiorecorder.cpp; sourceTree = "<group>"; };
 		5BC4A095215B6AB20023BE6D /* book.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = book.cpp; sourceTree = "<group>"; };
+		5BC4A097215B6EBA0023BE6D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +123,7 @@
 				5BC4A074215B63CE0023BE6D /* widget.ui */,
 				5BC4A06A215B63B80023BE6D /* main.cpp */,
 				5BC4A095215B6AB20023BE6D /* book.cpp */,
+				5BC4A097215B6EBA0023BE6D /* Media.xcassets */,
 			);
 			path = project;
 			sourceTree = "<group>";
